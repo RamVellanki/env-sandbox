@@ -22,3 +22,23 @@ jobs:
       - uses: actions/checkout@v2
       
       # Install dependencies
+      
+      # Apply Terraform
+      - uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 0.13.5
+        
+      - name: Terraform fmt
+        run:  terraform fmt
+      
+      - name: Terraform Init
+        run:  terraform init
+      
+      - name: Terraform Validate
+        run:  terraform validate -no-color
+      
+      - name: Terraform Plan
+        run:  terraform plan -no-color
+      
+      - name: terraform Apply
+        run:  terraform apply -no-color -auto-approve
