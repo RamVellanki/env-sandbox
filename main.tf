@@ -1,7 +1,7 @@
 terraform {
   backend "azurerm" {
-    resource_group_name  = "cloud-shell-storage-westeurope"
-    storage_account_name = "csb2b81130f4125x4cf8xb71"
+    resource_group_name  = "implementing_microservices"
+    storage_account_name = "microservicessg"
     container_name       = "tfstate"
     key                  = "prod.terraform.tfstate"
   }
