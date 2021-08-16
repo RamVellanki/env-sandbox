@@ -43,8 +43,8 @@ resource "azurerm_kubernetes_cluster" "cluster" {
 module "argo-cd-server" {
   source = "github.com/RamVellanki/module-argocd"
 
-  kubernetes_cluster_endpoint = kubernetes_cluster_endpoint
-  client_certificate     = client_certificate
-  client_key             = client_key
-  cluster_ca_certificate = cluster_ca_certificate
+  kubernetes_cluster_endpoint = "{var.kubernetes_cluster_endpoint}"
+  client_certificate     = "{var.client_certificate}"
+  client_key             = "{var.client_key}"
+  cluster_ca_certificate = "{var.cluster_ca_certificate}"
 }
