@@ -8,7 +8,7 @@ terraform {
 
   required_providers {
     azurerm = {
-      source   = "hashicorp/azurerm"
+      source  = "hashicorp/azurerm"
       version = "=2.49.0"
     }
   }
@@ -19,15 +19,15 @@ provider "azurerm" {
 }
 
 resource "azurerm_kubernetes_cluster" "cluster" {
-  name  = "learnk8scluster"
-  dns_prefix = "learnk8scluster"
+  name                = "learnk8scluster"
+  dns_prefix          = "learnk8scluster"
   resource_group_name = "implementing_microservices"
-  location = "southindia"
+  location            = "southindia"
 
   default_node_pool {
-    name= "default"
+    name       = "default"
     node_count = "2"
-    vm_size = "standard_d2_v2"
+    vm_size    = "standard_d2_v2"
   }
 
   identity {
@@ -40,3 +40,11 @@ resource "azurerm_kubernetes_cluster" "cluster" {
 # EKS Configuration
 
 # Gitops Configuration
+module "argo-cd-server" {
+  source = "*github.com/module-argocd*"
+  
+  kubernetes_cluster_endpoint = kubernetes_cluster_endpoint
+  client_certificate     = client_certificate
+  client_key             = client_key
+  cluster_ca_certificate = cluster_ca_certificate
+}
