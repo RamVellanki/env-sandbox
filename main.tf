@@ -41,8 +41,8 @@ resource "azurerm_kubernetes_cluster" "cluster" {
 
 # Gitops Configuration
 module "argo-cd-server" {
-  source = "*github.com/module-argocd*"
-  
+  source = "github.com/RamVellanki/module-argocd"
+
   kubernetes_cluster_endpoint = kubernetes_cluster_endpoint
   client_certificate     = client_certificate
   client_key             = client_key
