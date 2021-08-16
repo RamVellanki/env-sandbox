@@ -18,6 +18,8 @@ provider "azurerm" {
   features {}
 }
 
+# EKS Configuration
+
 resource "azurerm_kubernetes_cluster" "cluster" {
   name                = "learnk8scluster"
   dns_prefix          = "learnk8scluster"
@@ -34,10 +36,6 @@ resource "azurerm_kubernetes_cluster" "cluster" {
     type = "SystemAssigned"
   }
 }
-
-# Network configuration
-
-# EKS Configuration
 
 # Gitops Configuration
 module "argo-cd-server" {
