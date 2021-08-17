@@ -18,7 +18,7 @@ provider "azurerm" {
   features {}
 }
 
-# EKS Configuration
+# Kubernetes Configuration
 
 resource "azurerm_kubernetes_cluster" "cluster" {
   name                = "learnk8scluster"
